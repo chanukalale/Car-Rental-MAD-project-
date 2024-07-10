@@ -70,7 +70,6 @@ public class RegisterActivity extends AppCompatActivity {
                     type = "employee";
                 }
 
-                System.out.println(type);
                 // Get user input
                 String name = rfullname.getText().toString();
                 String uName = ruser.getText().toString().trim();
@@ -86,30 +85,29 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Fill all fields", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    System.out.println("done");
                     // Check if username exists in the database
-                    database.orderByChild("userName").equalTo(uName).addListenerForSingleValueEvent(new ValueEventListener() {
+                    database.orderByKey().equalTo(uName).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
                                 Toast.makeText(getApplicationContext(), "User Name already exists!", Toast.LENGTH_SHORT).show();
                             } else {
 
-                                String key = database.push().getKey();
-                                if (key != null) {
+                                if (uName != null) {
 
-                                    database.child(key).child("UserName").setValue(uName);
-                                    database.child(key).child("Name").setValue(name);
-                                    database.child(key).child("Email").setValue(email);
-                                    database.child(key).child("Phone").setValue(phone);
-                                    database.child(key).child("License").setValue(lic);
-                                    database.child(key).child("Password").setValue(pass);
-                                    database.child(key).child("UserType").setValue(type);
+                                    database.child(uName).child("UserName").setValue(uName);
+                                    database.child(uName).child("Name").setValue(name);
+                                    database.child(uName).child("Email").setValue(email);
+                                    database.child(uName).child("Phone").setValue(phone);
+                                    database.child(uName).child("License").setValue(lic);
+                                    database.child(uName).child("Password").setValue(pass);
+                                    database.child(uName).child("UserType").setValue(type);
 
                                     Toast.makeText(RegisterActivity.this, "Data Inserted", Toast.LENGTH_SHORT).show();
                                     finish();
+
                                 } else {
-                                    Toast.makeText(RegisterActivity.this, "Error generating key", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegisterActivity.this, "Empty user name", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }

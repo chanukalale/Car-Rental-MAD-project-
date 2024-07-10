@@ -1,6 +1,7 @@
 package com.example.testingmadapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,12 +30,17 @@ public class loginActivity extends AppCompatActivity {
     EditText loginName, loginPass;
     Button buttonlogin;
     TextView toreg;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+
+        //sharedPreferences
+        sharedPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
         //edit text
         loginName = findViewById(R.id.loginName);
@@ -82,10 +88,10 @@ public class loginActivity extends AppCompatActivity {
 
                                     if (pass != null && pass.equals(getPass)) {
 
-//                                        editor.putString("userEmail", userId);
-//                                        editor.putString("type", gettype);
-//                                        editor.putBoolean("logged", true);
-//                                        editor.apply();
+                                        editor.putString("userId", userId);
+                                        editor.putString("type", gettype);
+                                        editor.putBoolean("logged", true);
+                                        editor.apply();
 
                                         if ("customer".equals(gettype)) {
                                             Toast.makeText(loginActivity.this, "Successfully logged into Customer account", Toast.LENGTH_SHORT).show();
