@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "430383537971",
+    "project_id": "mad-app-lale",
+    "storage_bucket": "mad-app-lale.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430383537971:android:66515bd6172dcb707b6846",
+        "android_client_info": {
+          "package_name": "com.example.testingmadapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi8jYvjZBAIqQOmW6toRPZQ3WYjetvha8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
