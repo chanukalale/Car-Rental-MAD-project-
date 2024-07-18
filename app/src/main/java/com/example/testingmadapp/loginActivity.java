@@ -39,56 +39,54 @@ public class loginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        //sharedPreferences
+        // sharedPreferences
         sharedPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
-        //edit text
+        // edit text
         loginName = findViewById(R.id.loginName);
         loginPass = findViewById(R.id.loginPass);
 
-        //button
+        // button
         buttonlogin = findViewById(R.id.buttonlogin);
 
-        //to register
+        // to register
         toreg = findViewById(R.id.toreg);
 
+        // database references
         database = FirebaseDatabase.getInstance().getReference().child("Users");
 
-        //to register
+        // to register
         toreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent i = new Intent(loginActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
         });
 
-        //login button
+        // login button
         buttonlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Get user input data
                 String name = loginName.getText().toString();
                 String pass = loginPass.getText().toString();
 
-                if(name.isEmpty() || pass.isEmpty()){
-                    Toast.makeText(loginActivity.this,"Fill all fields",Toast.LENGTH_SHORT).show();
-                }else{
-                    database.orderByChild("name").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
+                if (name.isEmpty() || pass.isEmpty()) {
+                    Toast.makeText(loginActivity.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                } else {
+                    database.orderByKey().equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
-
                                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-
-                                    String userId = userSnapshot.getKey();
-                                    String getPass = userSnapshot.child("password").getValue(String.class);
-                                    String gettype = userSnapshot.child("type").getValue(String.class);
+                                    String userName = userSnapshot.getKey();
+                                    String getPass = userSnapshot.child("Password").getValue(String.class);
+                                    String gettype = userSnapshot.child("UserType").getValue(String.class);
 
                                     if (pass != null && pass.equals(getPass)) {
-
-                                        editor.putString("userId", userId);
+                                        editor.putString("userName", userName);
                                         editor.putString("type", gettype);
                                         editor.putBoolean("logged", true);
                                         editor.apply();
@@ -97,28 +95,24 @@ public class loginActivity extends AppCompatActivity {
                                             Toast.makeText(loginActivity.this, "Successfully logged into Customer account", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(loginActivity.this, CustomerActivity.class));
                                             finish();
-
-                                        } else if ("admin".equals(gettype)) {
-                                            Toast.makeText(loginActivity.this, "Successfully logged into Admin account", Toast.LENGTH_SHORT).show();
+                                        } else if ("employee".equals(gettype)) {
+                                            Toast.makeText(loginActivity.this, "Successfully logged into Employee account", Toast.LENGTH_SHORT).show();
                                             startActivity(new Intent(loginActivity.this, EmployeeActivity.class));
                                             finish();
-
                                         } else {
                                             Toast.makeText(loginActivity.this, "Unknown user type", Toast.LENGTH_SHORT).show();
                                         }
+                                    } else {
+                                        Toast.makeText(loginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                                     }
                                 }
-
-                                Toast.makeText(loginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
-
                             } else {
-
                                 Toast.makeText(loginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                             }
                         }
+
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
-
                             Toast.makeText(loginActivity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });

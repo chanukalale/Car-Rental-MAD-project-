@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="20"
-    android:background="@color/my_background"
+    android:background="@color/black"
+    android:backgroundTint="#193235"
     android:backgroundTintMode="screen"
     android:gravity="center|top"
     android:orientation="vertical"
@@ -22,7 +23,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Welcome Car Rental!"
+        android:text="Car Rental!"
 
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -36,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Create new Account"
+        android:text="Rent your car"
         android:textColor="@color/white"
         android:textSize="18dp" />
 
@@ -56,50 +57,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Full name"
+                android:text="Selected Car :"
                 android:textColor="@color/white"
-                android:textSize="14dp" />
+                android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/rfullname"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/white"
-                android:ems="10"
-                android:textColorHint="#b0b0b0"
-                android:padding="8dp"
-                android:hint="Enter your full name"
-                android:inputType="text"
-                android:textColor="@color/black" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Username"
+                android:text="Number Plate :"
                 android:textColor="@color/white"
-                android:textSize="14dp" />
+                android:layout_marginTop="20dp"
+                android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/ruser"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:padding="8dp"
-                android:hint="Enter your name"
-                android:inputType="text"
-                android:background="@color/white"
-                android:textColor="@color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Email"
+                android:text="Start Date"
                 android:textColor="@color/white"
-                android:textSize="14dp" />
+                android:layout_marginTop="20dp"
+                android:textSize="20dp" />
 
-            <EditText
+            <CalendarView
                 android:id="@+id/remail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -114,11 +97,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Phone"
+                android:text="End Date"
                 android:textColor="@color/white"
-                android:textSize="14dp" />
+                android:textSize="20dp" />
 
-            <EditText
+            <CalendarView
                 android:id="@+id/rphone"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -129,74 +112,12 @@
                 android:background="@color/white"
                 android:textColor="@color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="LIC Number"
-                android:textColor="@color/white"
-                android:textSize="14dp" />
-
-            <EditText
-                android:id="@+id/rlic"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:padding="8dp"
-                android:hint="Enter your Licesne numer"
-                android:inputType="text"
-                android:background="@color/white"
-                android:textColor="@color/black" />
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="Password"
-                android:textColor="@color/white"
-                android:textSize="14dp" />
-
-            <EditText
-                android:id="@+id/rpass"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:padding="8dp"
-                android:hint="Enter Password"
-                android:inputType="text"
-                android:background="@color/white"
-                android:textColor="@color/black" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="14dp"
-                android:layout_marginTop="10dp">
-
-                <CheckBox
-                    android:id="@+id/cuschk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Customer"/>
-                <CheckBox
-                    android:id="@+id/empchk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Employee"/>
-
-            </LinearLayout>
-
 
             <Button
                 android:id="@+id/logbutton"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
-                android:text="REGISTER"
+                android:text="RENT"
                 android:textColor="@color/white"
                 app:rippleColor="@color/cardview_light_background"
                 android:textAlignment="center"
@@ -209,8 +130,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Already have an account ?"
+                android:text="NOTE : Are "
                 android:textColor="@color/white"
+                android:layout_marginTop="20dp"
                 android:textSize="14dp" />
 
         </LinearLayout>
