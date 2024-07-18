@@ -89,7 +89,8 @@
                 android:hint="Enter your name"
                 android:inputType="text"
                 android:background="@color/white"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -108,7 +109,8 @@
                 android:hint="Enter your Email"
                 android:inputType="text"
                 android:background="@color/white"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -127,7 +129,8 @@
                 android:hint="Enter your Phone No"
                 android:inputType="number"
                 android:background="@color/white"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -146,7 +149,8 @@
                 android:hint="Enter your Licesne numer"
                 android:inputType="text"
                 android:background="@color/white"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
 
 
@@ -167,7 +171,8 @@
                 android:hint="Enter Password"
                 android:inputType="text"
                 android:background="@color/white"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <LinearLayout
                 android:layout_width="match_parent"
