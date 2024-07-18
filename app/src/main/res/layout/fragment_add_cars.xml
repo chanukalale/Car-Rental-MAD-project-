@@ -22,7 +22,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Car Rental!"
+        android:text="Car Rental"
 
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -78,7 +78,7 @@
                 android:layout_gravity="left"
                 android:text="Number plate"
                 android:textColor="@color/white"
-                android:textSize="15dpdp" />
+                android:textSize="15dp" />
 
             <EditText
                 android:id="@+id/numplate"

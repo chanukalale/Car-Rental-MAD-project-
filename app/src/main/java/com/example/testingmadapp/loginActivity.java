@@ -43,6 +43,26 @@ public class loginActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        if(check()){
+
+            SharedPreferences prf2 = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+            String x = prf2.getString("type", "");
+
+            switch (x) {
+                case "employee":
+                    startActivity(new Intent(loginActivity.this, EmployeeActivity.class));
+                    finish();
+                    break;
+
+                case "customer":
+                    startActivity(new Intent(loginActivity.this, CustomerActivity.class));
+                    finish();
+                    break;
+
+                default:
+            }
+        }
+
         // edit text
         loginName = findViewById(R.id.loginName);
         loginPass = findViewById(R.id.loginPass);
@@ -103,11 +123,11 @@ public class loginActivity extends AppCompatActivity {
                                             Toast.makeText(loginActivity.this, "Unknown user type", Toast.LENGTH_SHORT).show();
                                         }
                                     } else {
-                                        Toast.makeText(loginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(loginActivity.this, "Invalid user name or password", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             } else {
-                                Toast.makeText(loginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(loginActivity.this, "Invalid user name or password", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -119,5 +139,10 @@ public class loginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    //not loggin
+    private boolean check(){
+        return sharedPreferences.getBoolean("logged", false);
     }
 }
