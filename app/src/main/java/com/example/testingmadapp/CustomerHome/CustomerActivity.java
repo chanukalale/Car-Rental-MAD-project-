@@ -59,7 +59,7 @@ public class CustomerActivity extends AppCompatActivity {
 
                 }
                 else if(itemId == R.id.signoutcus){
-                    signOut();
+                    signOutCus();
 
                 }
                 else if (itemId == R.id.booking) {
@@ -87,7 +87,7 @@ public class CustomerActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public void signOut(){
+    public void signOutCus(){
 
         //Alert of click cansel when status pending
 
