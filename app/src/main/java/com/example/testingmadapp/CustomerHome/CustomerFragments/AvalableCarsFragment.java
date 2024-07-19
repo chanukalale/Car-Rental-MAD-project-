@@ -2,65 +2,89 @@ package com.example.testingmadapp.CustomerHome.CustomerFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.testingmadapp.CustomerHome.DisplayCars.DisplayCarsAdapter;
+import com.example.testingmadapp.CustomerHome.DisplayCars.DisplayCarsModel;
 import com.example.testingmadapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AvalableCarsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class AvalableCarsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AvalableCarsFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AvalableCarsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AvalableCarsFragment newInstance(String param1, String param2) {
-        AvalableCarsFragment fragment = new AvalableCarsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    DisplayCarsAdapter myAdapter;
+    ArrayList<DisplayCarsModel> list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_avalable_cars, container, false);
+        View rootView =inflater.inflate(R.layout.fragment_avalable_cars, container, false);
+        recyclerView = rootView.findViewById(R.id.rview3);
+        database = FirebaseDatabase.getInstance().getReference().child("Cars");
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        list = new ArrayList<>();
+        myAdapter = new DisplayCarsAdapter(getContext(), list);
+        recyclerView.setAdapter(myAdapter);
+
+        fetchDataFromDatabase();
+
+        return rootView;
+    }
+
+    private void fetchDataFromDatabase() {
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
+                    String name = itemSnapshot.child("carName").getValue(String.class);
+                    String primaryPayment = itemSnapshot.child("primaryPayment").getValue(String.class);
+                    String image = itemSnapshot.child("carImage").getValue(String.class);
+                    String amountOf1kmPrice = itemSnapshot.child("amountOf1kmPrice").getValue(String.class);
+                    String seller = itemSnapshot.child("User").getValue(String.class);
+                    String carID = itemSnapshot.getKey();
+
+                    Log.d("AllcarsFragment", "Name: " + name);
+                    Log.d("AllcarsFragment", "Primary Payment: " + primaryPayment);
+                    Log.d("AllcarsFragment", "Image: " + image);
+                    Log.d("AllcarsFragment", "Amount per KM: " + amountOf1kmPrice);
+                    Log.d("AllcarsFragment", "Seller: " + seller);
+
+                    DisplayCarsModel mainModel = new DisplayCarsModel();
+                    mainModel.setName(name);
+                    mainModel.setOneKMPrice(amountOf1kmPrice);
+                    mainModel.setPrimaryPayment(primaryPayment);
+                    mainModel.setImage(image);
+                    mainModel.setSeller(seller);
+                    mainModel.setCarID(carID);
+
+                    list.add(mainModel);
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("AllcarsFragment", "Database error: " + error.getMessage());
+            }
+        });
     }
 }
