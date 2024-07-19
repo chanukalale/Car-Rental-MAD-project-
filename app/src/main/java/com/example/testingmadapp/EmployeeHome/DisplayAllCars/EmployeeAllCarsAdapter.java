@@ -1,6 +1,8 @@
 package com.example.testingmadapp.EmployeeHome.DisplayAllCars;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -19,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testingmadapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,8 +63,8 @@ public class EmployeeAllCarsAdapter extends RecyclerView.Adapter<EmployeeAllCars
             holder.itemImage.setImageResource(R.drawable.ic_launcher_background);
         }
 
-                SharedPreferences sharedPreferences = context.getSharedPreferences("CurrentUser", context.MODE_PRIVATE);
-                String customer = sharedPreferences.getString("userEmail", "");
+        SharedPreferences sharedPreferences = context.getSharedPreferences("CurrentUser", context.MODE_PRIVATE);
+        String currentLog = sharedPreferences.getString("userName", "");
 
         // Set item name
         holder.itemName.setText(model.getName());
@@ -70,6 +74,53 @@ public class EmployeeAllCarsAdapter extends RecyclerView.Adapter<EmployeeAllCars
 
         //Set Available qty
         holder.primaryPay.setText(model.getPrimaryPayment());
+
+        System.out.println("current" + currentLog);
+        System.out.println("model" +model.getSeller());
+
+        //delete buttn
+        if(currentLog.equals(model.getSeller())){
+
+            holder.deleteCar.setVisibility(View.VISIBLE);
+        }else{
+            holder.deleteCar.setVisibility(View.GONE);
+        }
+
+        //delete button onclick
+        holder.deleteCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Alert of click cansel when status pending
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setMessage("Are you sure delete order ?");
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("Cars").child(model.getCarID());
+                        database.removeValue()
+                                .addOnSuccessListener(aVoid -> {
+                                    Toast.makeText(context, "Car removed", Toast.LENGTH_SHORT).show();
+                                })
+                                .addOnFailureListener(e -> {
+                                    System.err.println("Error removing data: " + e.getMessage());
+                                });
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
     }
 
     @Override
@@ -82,6 +133,7 @@ public class EmployeeAllCarsAdapter extends RecyclerView.Adapter<EmployeeAllCars
         TextView itemName, amountOneKM, primaryPay;
         LinearLayout moreinfoOfAvailableCars;
         ImageView itemImage;
+        Button deleteCar;
 
         public MainViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -91,6 +143,7 @@ public class EmployeeAllCarsAdapter extends RecyclerView.Adapter<EmployeeAllCars
             amountOneKM = itemView.findViewById(R.id.chforAmount);
             itemImage = itemView.findViewById(R.id.chforimg);
             primaryPay = itemView.findViewById(R.id.chforPay);
+            deleteCar = itemView.findViewById(R.id.deleteCar);
         }
     }
 

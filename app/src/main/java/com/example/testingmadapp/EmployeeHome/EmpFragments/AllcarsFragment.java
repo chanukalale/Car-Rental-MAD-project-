@@ -62,6 +62,7 @@ public class AllcarsFragment extends Fragment {
                     String image = itemSnapshot.child("carImage").getValue(String.class);
                     String amountOf1kmPrice = itemSnapshot.child("amountOf1kmPrice").getValue(String.class);
                     String seller = itemSnapshot.child("User").getValue(String.class);
+                    String carID = itemSnapshot.getKey();
 
                     Log.d("AllcarsFragment", "Name: " + name);
                     Log.d("AllcarsFragment", "Primary Payment: " + primaryPayment);
@@ -75,6 +76,7 @@ public class AllcarsFragment extends Fragment {
                     mainModel.setPrimaryPayment(primaryPayment);
                     mainModel.setImage(image);
                     mainModel.setSeller(seller);
+                    mainModel.setCarID(carID);
 
                     list.add(mainModel);
                 }

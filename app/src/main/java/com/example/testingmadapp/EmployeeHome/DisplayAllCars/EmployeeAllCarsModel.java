@@ -2,7 +2,7 @@ package com.example.testingmadapp.EmployeeHome.DisplayAllCars;
 
 public class EmployeeAllCarsModel {
 
-    String image, name, oneKMPrice, primaryPayment, seller;
+    String image, name, oneKMPrice, primaryPayment, seller, carID;
 
     public String getImage() {
         return image;
@@ -42,5 +42,13 @@ public class EmployeeAllCarsModel {
 
     public void setSeller(String seller) {
         this.seller = seller;
+    }
+
+    public String getCarID() {
+        return carID;
+    }
+
+    public void setCarID(String carID) {
+        this.carID = carID;
     }
 }

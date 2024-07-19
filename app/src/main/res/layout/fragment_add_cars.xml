@@ -107,7 +107,7 @@
                 android:ems="10"
                 android:padding="8dp"
                 android:hint="Enter primary payment"
-                android:inputType="text"
+                android:inputType="number"
                 android:background="@color/white"
                 android:textColor="@color/black"
                 android:textColorHint="#b0b0b0"/>
