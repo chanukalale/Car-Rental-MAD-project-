@@ -8,12 +8,6 @@
         android:title="Available Cars"
         android:icon="@drawable/booked"/>
     <item
-        android:id="@+id/events"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="events"
-        android:icon="@drawable/booked"/>
-    <item
         android:id="@+id/booking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -11,20 +11,12 @@ import android.widget.FrameLayout;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.testingmadapp.CustomerHome.CustomerFragments.AvalableCarsFragment;
 import com.example.testingmadapp.CustomerHome.CustomerFragments.BookingFragment;
-import com.example.testingmadapp.CustomerHome.CustomerFragments.EventCusFragment;
-import com.example.testingmadapp.EmployeeHome.EmpFragments.AddCarsFragment;
-import com.example.testingmadapp.EmployeeHome.EmpFragments.AllcarsFragment;
-import com.example.testingmadapp.EmployeeHome.EmpFragments.YourCarsFragment;
-import com.example.testingmadapp.EmployeeHome.EmployeeActivity;
 import com.example.testingmadapp.R;
 import com.example.testingmadapp.loginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -53,9 +45,6 @@ public class CustomerActivity extends AppCompatActivity {
 
                 if (itemId == R.id.avlCars) {
                     loadFragment(new AvalableCarsFragment(), false);
-
-                } else if (itemId == R.id.events) {
-                    loadFragment(new EventCusFragment(), false);
 
                 }
                 else if(itemId == R.id.signoutcus){
