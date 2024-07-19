@@ -1,8 +1,15 @@
 package com.example.testingmadapp.EmployeeHome;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -18,7 +25,10 @@ import com.example.testingmadapp.EmployeeHome.EmpFragments.AddCarsFragment;
 import com.example.testingmadapp.EmployeeHome.EmpFragments.AllcarsFragment;
 import com.example.testingmadapp.EmployeeHome.EmpFragments.YourCarsFragment;
 import com.example.testingmadapp.R;
+import com.example.testingmadapp.loginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class EmployeeActivity extends AppCompatActivity {
 
@@ -34,7 +44,7 @@ public class EmployeeActivity extends AppCompatActivity {
         bnav = findViewById(R.id.bnav);
         frm = findViewById(R.id.frm);
 
-        loadFragment(new YourCarsFragment(), false);
+        loadFragment(new AllcarsFragment(), false);
 
         bnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -42,19 +52,19 @@ public class EmployeeActivity extends AppCompatActivity {
 
                 int itemId = item.getItemId();
 
-                if(itemId == R.id.yourCars){
-                    loadFragment(new YourCarsFragment(), false);
+                if(itemId == R.id.allCars){
+                    loadFragment(new AllcarsFragment(), false);
 
-                }else if(itemId == R.id.addCars){
-                    loadFragment(new AddCarsFragment(), false);
+                }else if(itemId == R.id.yourCars){
+                    loadFragment(new YourCarsFragment (), false);
 
                 }
-//                else if(itemId == R.id.signout){
-//                    loadFragment(new AddCarsFragment(), false);
-//
-//                }
-                else if(itemId == R.id.allCars){
-                    loadFragment(new AllcarsFragment(), false);
+                else if(itemId == R.id.signout){
+                    signOut();
+
+                }
+                else if(itemId == R.id.addCars){
+                    loadFragment(new AddCarsFragment(), false);
 
                 }
 
@@ -76,5 +86,36 @@ public class EmployeeActivity extends AppCompatActivity {
         }
 
         fragmentTransaction.commit();
+    }
+
+    public void signOut(){
+
+        //Alert of click cansel when status pending
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(EmployeeActivity.this);
+        builder.setMessage("Do you want to logout ?");
+
+        builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                SharedPreferences sharedPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent i = new Intent(EmployeeActivity.this, loginActivity.class);
+                startActivity(i);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

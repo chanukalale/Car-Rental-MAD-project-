@@ -101,6 +101,17 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/deleteCar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:backgroundTint="#8F2525"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="14dp"
+            android:visibility="gone"/>
+
     </LinearLayout>
 
 
