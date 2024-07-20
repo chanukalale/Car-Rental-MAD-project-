@@ -132,5 +132,34 @@ public class RentActivity extends AppCompatActivity {
                 eDate.setText(selectedDate);
             }
         });
+
+
+        Button button2= findViewById(R.id.calculater_to_go);
+        button2.setOnClickListener(new View.OnClickListener(){
+
+            public void  onClick(View v) {
+                Intent intent = new Intent(RentActivity.this, CalculaterActivity.class);
+                startActivity(intent);
+
+            }         } );
+
+
+        Button button3= findViewById(R.id.feedback_customer);
+        button3.setOnClickListener(new View.OnClickListener(){
+
+            public void  onClick(View v) {
+                Intent intent = new Intent(RentActivity.this, FeedbackActivity.class);
+                startActivity(intent);
+
+            }         } );
+// this is contact
+        Button button4= findViewById(R.id.Contact_us);
+        button4.setOnClickListener(new View.OnClickListener(){
+
+            public void  onClick(View v) {
+                Intent intent = new Intent(RentActivity.this, ContactActivity.class);
+                startActivity(intent);
+
+            }         } );
     }
 }
