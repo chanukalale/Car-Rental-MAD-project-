@@ -15,12 +15,13 @@
     android:persistentDrawingCache="scrolling"
     app:layout_scrollFlags="scroll"
     tools:context=".CustomerHome.FeedbackActivity">
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Car Rental"
+        android:layout_marginTop="50dp"
+        android:text="RideHub"
 
         android:textColor="@color/white"
         android:textSize="30sp"

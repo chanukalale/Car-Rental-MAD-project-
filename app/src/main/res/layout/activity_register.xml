@@ -22,7 +22,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Welcome Car Rental!"
+        android:text="Welcome Ridehub"
 
         android:textColor="@color/white"
         android:textSize="30sp"

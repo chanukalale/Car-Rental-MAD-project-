@@ -34,7 +34,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-
+// car=======================item
 public class EmployeeAllCarsAdapter extends RecyclerView.Adapter<EmployeeAllCarsAdapter.MainViewHolder>{
 
     Context context;
@@ -133,7 +133,7 @@ public class EmployeeAllCarsAdapter extends RecyclerView.Adapter<EmployeeAllCars
         TextView itemName, amountOneKM, primaryPay;
         LinearLayout moreinfoOfAvailableCars;
         ImageView itemImage;
-        Button deleteCar;
+        Button deleteCar;  // car ======item
 
         public MainViewHolder(@NonNull View itemView) {
             super(itemView);
