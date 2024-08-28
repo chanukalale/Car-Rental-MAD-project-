@@ -39,7 +39,7 @@
         android:text="Buy your item"
         android:textColor="@color/white"
         android:textSize="18dp" />
-    <Button
+  <!--  <Button
         android:id="@+id/calculater_to_go"
         android:layout_width="120dp"
         android:layout_height="50dp"
@@ -63,7 +63,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="?attr/colorOnPrimaryContainer"
         tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="579dp" />
+        tools:layout_editor_absoluteY="579dp" />  -->
     <Button
         android:id="@+id/feedback_customer"
         android:layout_width="120dp"

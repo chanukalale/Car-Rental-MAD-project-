@@ -134,14 +134,7 @@ public class RentActivity extends AppCompatActivity {
         });
 
 
-        Button button2= findViewById(R.id.calculater_to_go);
-        button2.setOnClickListener(new View.OnClickListener(){
 
-            public void  onClick(View v) {
-                Intent intent = new Intent(RentActivity.this, CalculaterActivity.class);
-                startActivity(intent);
-
-            }         } );
 
 
         Button button3= findViewById(R.id.feedback_customer);
@@ -149,15 +142,6 @@ public class RentActivity extends AppCompatActivity {
 
             public void  onClick(View v) {
                 Intent intent = new Intent(RentActivity.this, FeedbackActivity.class);
-                startActivity(intent);
-
-            }         } );
-// this is contact
-        Button button4= findViewById(R.id.Contact_us);
-        button4.setOnClickListener(new View.OnClickListener(){
-
-            public void  onClick(View v) {
-                Intent intent = new Intent(RentActivity.this, ContactActivity.class);
                 startActivity(intent);
 
             }         } );
