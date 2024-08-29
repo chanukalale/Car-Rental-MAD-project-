@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RegisterActivity extends AppCompatActivity {
     DatabaseReference  database;
-    EditText rfullname, ruser, remail, rphone, rlic, rpass;
+    EditText rfullname, ruser,raddress, remail, rphone, rlic,rbank, rpass;
     TextView golog;
     CheckBox cus, employee;
     String type;
@@ -38,9 +38,11 @@ public class RegisterActivity extends AppCompatActivity {
         // Initialize UI elements
         rfullname = findViewById(R.id.rfullname);
         ruser = findViewById(R.id.ruser);
+        raddress = findViewById(R.id.raddress);
         remail = findViewById(R.id.remail);
         rphone = findViewById(R.id.rphone);
         rlic = findViewById(R.id.rlic);
+        rbank= findViewById(R.id.rbank);
         rpass = findViewById(R.id.rpass);
         login = findViewById(R.id.logbutton);
         cus = findViewById(R.id.cuschk);
@@ -73,9 +75,12 @@ public class RegisterActivity extends AppCompatActivity {
                 // Get user input
                 String name = rfullname.getText().toString();
                 String uName = ruser.getText().toString().trim();
+                String address = raddress.getText().toString().trim();
                 String email = remail.getText().toString();
                 String phone = rphone.getText().toString();
                 String lic = rlic.getText().toString();
+                String bankacc = rbank.getText().toString();
+
                 String pass = rpass.getText().toString();
 
                 // Validate user input and type
@@ -97,9 +102,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                                     database.child(uName).child("UserName").setValue(uName);
                                     database.child(uName).child("Name").setValue(name);
+                                    database.child(uName).child("Address").setValue(address);
                                     database.child(uName).child("Email").setValue(email);
                                     database.child(uName).child("Phone").setValue(phone);
                                     database.child(uName).child("License").setValue(lic);
+                                    database.child(uName).child("Bankacc").setValue(bankacc);
                                     database.child(uName).child("Password").setValue(pass);
                                     database.child(uName).child("UserType").setValue(type);
 

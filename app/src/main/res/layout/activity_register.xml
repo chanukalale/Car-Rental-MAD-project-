@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Full name"
+                android:text="User ID"
                 android:textColor="@color/white"
                 android:textSize="14dp" />
 
@@ -68,7 +68,7 @@
                 android:ems="10"
                 android:textColorHint="#b0b0b0"
                 android:padding="8dp"
-                android:hint="Enter your full name"
+                android:hint="Enter your ID"
                 android:inputType="text"
                 android:textColor="@color/black" />
 
@@ -92,6 +92,25 @@
                 android:textColor="@color/black"
                 android:textColorHint="#b0b0b0" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Address"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/raddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:textColorHint="#b0b0b0"
+                android:padding="8dp"
+                android:hint="Enter your Address"
+                android:inputType="text"
+                android:textColor="@color/black" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="LIC Number"
+                android:text="NIC Number"
                 android:textColor="@color/white"
                 android:textSize="14dp" />
 
@@ -146,13 +165,31 @@
                 android:layout_height="50dp"
                 android:ems="10"
                 android:padding="8dp"
-                android:hint="Enter your Licesne numer"
+                android:hint="Enter your NIC numer"
                 android:inputType="text"
                 android:background="@color/white"
                 android:textColor="@color/black"
                 android:textColorHint="#b0b0b0" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Bank acc.No"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
 
+            <EditText
+                android:id="@+id/rbank"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:padding="8dp"
+                android:hint="Enter Acc.No(Sellers Only)"
+                android:inputType="number"
+                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="wrap_content"
