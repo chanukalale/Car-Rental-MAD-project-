@@ -5,12 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:background="@color/my_background"
     android:backgroundTintMode="screen"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:outlineProvider="none"
+    android:padding="20dp"
     android:persistentDrawingCache="scrolling"
     app:layout_scrollFlags="scroll"
     tools:context=".loginActivity">
@@ -33,17 +33,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Login Account"
         android:layout_marginBottom="30dp"
-        android:textColor="@color/black"
+        android:text="Login Account"
+        android:textColor="@color/white"
         android:textSize="18dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:gravity="center">
+        android:padding="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,14 +56,14 @@
         <EditText
             android:id="@+id/loginName"
             android:layout_width="match_parent"
-            android:ems="10"
-            android:padding="8dp"
-            android:textColorHint="#b0b0b0"
-            android:hint="Enter youser name"
-            android:background="@color/white"
             android:layout_height="50dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="Enter youser name"
             android:inputType="textEmailAddress"
-            android:textColor="@color/black" />
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHint="#b0b0b0" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,11 +79,11 @@
             android:layout_height="50dp"
             android:background="@color/white"
             android:ems="10"
-            android:textColorHint="#b0b0b0"
-            android:padding="8dp"
             android:hint="Enter your password"
             android:inputType="textPassword"
-            android:textColor="@color/black" />
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHint="#b0b0b0" />
     </LinearLayout>
 
 
@@ -90,21 +91,20 @@
         android:id="@+id/buttonlogin"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:textAlignment="center"
         android:layout_marginTop="20dp"
         android:text="Submit"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="23sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/toreg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="Don't have an account?"
-        android:textColor="@color/white"
         android:textAlignment="center"
-        android:textSize="15dp"
-        android:padding="10dp"/>
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 </LinearLayout>

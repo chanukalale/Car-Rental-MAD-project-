@@ -34,7 +34,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class AddCarsFragment extends Fragment {
 
-    EditText carname, numplate, primarypay, distance;
+    EditText carname, numplate, primarypay, distance,rdescription;
     Button btn;
     ImageView img;
     String user, key;
@@ -44,7 +44,7 @@ public class AddCarsFragment extends Fragment {
     int PICK_IMAGE_REQUEST;
 
 
-    String name, numplt, prpay, dist;
+    String name, numplt, prpay, dist,descr;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class AddCarsFragment extends Fragment {
         numplate = rootView.findViewById(R.id.numplate);
         primarypay = rootView.findViewById(R.id.primarypay);
         distance = rootView.findViewById(R.id.distance);
+        rdescription = rootView.findViewById(R.id.rdescription);
         img = rootView.findViewById(R.id.carimg);
 
         btn = rootView.findViewById(R.id.addbutton);
@@ -96,7 +97,7 @@ public class AddCarsFragment extends Fragment {
                 numplt = numplate.getText().toString();
                 prpay = primarypay.getText().toString();
                 dist = distance.getText().toString();
-
+            descr=rdescription.getText().toString();
                 if(name.isEmpty() || numplt.isEmpty() || prpay.isEmpty() || dist.isEmpty()){
 
                     Toast.makeText(getContext(), "Fill all fields", Toast.LENGTH_SHORT).show();
@@ -117,6 +118,8 @@ public class AddCarsFragment extends Fragment {
                                         DB.child(key).child("numPlate").setValue(numplt);
                                         DB.child(key).child("amountOf1kmPrice").setValue(prpay);
                                         DB.child(key).child("primaryPayment").setValue(dist);
+                                        // description add
+                                        DB.child(key).child("description").setValue(descr);
                                         DB.child(key).child("User").setValue(user);
 
                                         Intent i = new Intent(getActivity(), EmployeeActivity.class);

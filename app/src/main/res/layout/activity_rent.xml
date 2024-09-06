@@ -119,12 +119,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number Plate :"
-                android:textColor="@color/black"
                 android:layout_marginTop="20dp"
+                android:text="Item ID"
+                android:textColor="@color/black"
                 android:textSize="20dp" />
             <TextView
                 android:id="@+id/numPlate"
@@ -141,12 +142,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Primary payment :"
-                    android:textColor="@color/black"
                     android:layout_marginTop="20dp"
+                    android:text="Unite amount"
+                    android:textColor="@color/black"
                     android:textSize="20dp" />
                 <TextView
                     android:id="@+id/pp"
@@ -163,12 +165,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Amount of 1km price :"
-                android:textColor="@color/black"
                 android:layout_marginTop="20dp"
+                android:text="Quantity"
+                android:textColor="@color/black"
                 android:textSize="20dp" />
             <TextView
                 android:id="@+id/aop"
@@ -185,20 +188,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+                android:layout_marginTop="20dp"
                 android:text="Start Date"
                 android:textColor="@color/black"
-                android:layout_marginTop="20dp"
                 android:textSize="20dp" />
+
             <TextView
                 android:id="@+id/sDate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="@color/white"
                 android:ems="10"
-                android:padding="8dp"
                 android:gravity="center"
                 android:hint="Select end date"
                 android:inputType="number"
-                android:background="@color/white"
+                android:padding="8dp"
                 android:textColor="@color/black" />
 
             <CalendarView

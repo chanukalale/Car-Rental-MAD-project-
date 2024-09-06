@@ -54,11 +54,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Primary Payment:"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:paddingStart="20dp"
-                    android:textSize="15dp"/>
+                    android:text="unite amount"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/chforPay"
@@ -80,12 +80,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Amount of 1km price:"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"
                     android:paddingStart="20dp"
+                    android:text="quantity"
+                    android:textColor="@color/black"
                     android:textSize="15dp"
-                    android:layout_marginBottom="8dp"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/chforAmount"

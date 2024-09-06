@@ -34,6 +34,7 @@ public class AvalableCarsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        // item add ok
         View rootView =inflater.inflate(R.layout.fragment_avalable_cars, container, false);
         recyclerView = rootView.findViewById(R.id.rview3);
         database = FirebaseDatabase.getInstance().getReference().child("Cars");

@@ -66,17 +66,17 @@
                 android:layout_height="50dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:textColorHint="#b0b0b0"
-                android:padding="8dp"
-                android:hint="Enter car name"
+                android:hint="Enter item name"
                 android:inputType="text"
-                android:textColor="@color/black" />
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Number plate"
+                android:text="Item ID"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
 
@@ -84,19 +84,19 @@
                 android:id="@+id/numplate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:ems="10"
-                android:padding="8dp"
-                android:hint="Enter vehicle number plate"
-                android:textColorHint="#b0b0b0"
-                android:inputType="text"
                 android:background="@color/white"
-                android:textColor="@color/black"/>
+                android:ems="10"
+                android:hint="Enter ID"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Primary payment"
+                android:text="Unite Amount"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
 
@@ -104,19 +104,19 @@
                 android:id="@+id/primarypay"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:ems="10"
-                android:padding="8dp"
-                android:hint="Enter primary payment"
-                android:inputType="number"
                 android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter unite payment"
+                android:inputType="number"
+                android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHint="#b0b0b0"/>
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Amount of 1km price"
+                android:text="quantity"
                 android:textColor="@color/white"
                 android:textSize="15dp" />
 
@@ -124,13 +124,32 @@
                 android:id="@+id/distance"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:ems="10"
-                android:padding="8dp"
-                android:hint="Enter amount of 1km price"
-                android:inputType="number"
                 android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter quantity"
+                android:inputType="number"
+                android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHint="#b0b0b0"/>
+                android:textColorHint="#b0b0b0" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Description"
+                android:textColor="@color/white"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/rdescription"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Enter item description"
+                android:inputType="number"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="#b0b0b0" />
 
             <TextView
                 android:layout_width="match_parent"
