@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "105074523869",
+    "firebase_url": "https://hd-project-6c933-default-rtdb.firebaseio.com",
+    "project_id": "hd-project-6c933",
+    "storage_bucket": "hd-project-6c933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105074523869:android:9066dde1c2a1bc7deb6534",
+        "android_client_info": {
+          "package_name": "com.example.testingmadapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0-nQK9_MH0LiZhQnmA9cjUkcfCWpXfIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
